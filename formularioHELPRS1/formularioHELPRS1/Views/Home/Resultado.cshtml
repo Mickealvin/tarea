@@ -1,0 +1,41 @@
+﻿@model formularioHELPRS1.Models.persona
+@{
+    ViewBag.Title = "Resultado";
+}
+
+
+
+<h2>Persona registrada</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Cedula</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Edad</td>
+            <td>Telefono</td>
+            <td>Correo</td>
+            <td>Estado civil</td>
+            <td>Hobbys</td>
+            <td>Genero</td>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Cedula<br></td>
+            <td>@Model.Nombre<br></td>
+            <td>@Model.Apellido<br></td>
+            <td>@Model.Edad<br></td>
+            <td>@Model.Telefono<br></td>
+            <td>@Model.Correo<br></td>
+            <td>@Model.Estado_civil<br></td>
+            <td>@Model.Hobbys<br></td>
+            <td>@Model.genero<br></td>
+
+        </tr>
+
+    </tbody>
+</table>
+

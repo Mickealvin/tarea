@@ -1,0 +1,69 @@
+﻿@using formularioHELPRS1.Models
+@model persona
+
+
+
+@{
+    ViewBag.Title = "persona";
+}
+
+<h2>Persona</h2>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<form action="Resultado" method="post">
+
+
+    Cedula: @Html.TextBoxFor(x => x.Cedula) <br />
+    @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })<br />
+
+
+    Nombre: @Html.TextBoxFor(x => x.Nombre)<br />
+    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })<br />
+
+    Apellido: @Html.TextBoxFor(x => x.Apellido) <br />
+    @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })<br />
+
+    Edad:@Html.TextBoxFor(x => x.Edad)<br />
+    @Html.ValidationMessageFor(model => model.Edad, "", new { @class = "text-danger" })<br />
+
+
+    Telefono: @Html.TextBoxFor(x => x.Telefono) <br />
+    <br />
+    Correo: @Html.TextBoxFor(x => x.Correo) <br />
+    @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })<br />
+
+    <h1>Genero</h1>
+    @Html.DropDownList("genero",
+    new SelectList(Enum.GetValues(typeof(Gender))),
+    "Seleciona Genero",
+    new { @class = "form-control" })
+
+    <h1>Estado civil</h1>
+
+    Casado:@Html.RadioButton("Estado_civil", "Casado")<br />
+    Soltero:@Html.RadioButton("Estado_civil", "Soltero")<br />
+    Viudo:@Html.RadioButton("Estado_civil", "Viudo")<br />
+    Union libre:@Html.RadioButton("Estado_civil", "Union_libre")<br />
+
+    <h1>Hobbys</h1>
+
+    @{
+        List<string> mlist = ViewBag.pasatiempo;
+
+        foreach (var h in mlist)
+        {
+            <tr>
+                <input type="checkbox" name="Hobbys" value="@h" />@h;
+            </tr>
+        }
+
+    }
+
+    <input type="submit" value="Enviar" />
+
+</form>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
